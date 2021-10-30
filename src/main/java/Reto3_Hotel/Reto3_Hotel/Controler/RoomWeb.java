@@ -19,46 +19,47 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
 /**
  *
  * @author Ivonne
  */
-
 @RestController
 @RequestMapping("/api/Room")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+
 public class RoomWeb {
         
-    @Autowired
-    private ServiceRoom servicios;
+ @Autowired
+    private ServiceRoom servicio;
     @GetMapping("/all")
-    public List <Room> getRoom(){
-        return servicios.getAll();
+    public List<Room> getRoom(){
+        return servicio.getAll();
     }
-    
+
     @GetMapping("/{id}")
-    public Optional<Room> getRoom(@PathVariable("id")int roomId){
-        return servicios.getRoom(roomId);
+    public Optional<Room> getRoom(@PathVariable("id") int roomId) {
+        return servicio.getRoom(roomId);
     }
-    
+
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Room save(@RequestBody Room room){
-        return servicios.save(room);
-        
+    public Room save(@RequestBody Room room) {
+        return servicio.save(room);
     }
-    
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
     public Room update(@RequestBody Room room) {
-        return servicios.update(room);
+        return servicio.update(room);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int roomId) {
-        return servicios.deleteRoom(roomId);
-    } 
+        return servicio.deleteRoom(roomId);
+    }
+       
 }
 
 
