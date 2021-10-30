@@ -69,7 +69,7 @@ public class Room implements Serializable {
     private List<Message>messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy="room")
-    @JsonIgnoreProperties({"rooms","client"})
+    @JsonIgnoreProperties({"room","client"})
     /**
      * lista con las reservaciones de la habitacion
      */
