@@ -27,13 +27,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/Room")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
-
 public class RoomWeb {
         
     @Autowired
     private ServiceRoom servicios;
     @GetMapping("/all")
-    public List <Room> getRooms(){
+    public List <Room> getRoom(){
         return servicios.getAll();
     }
     
